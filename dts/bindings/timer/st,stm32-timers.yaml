@@ -46,3 +46,17 @@ properties:
                                                down.
 
       If absent, then STM32_TIM_COUNTERMODE_UP is used (reset state).
+
+  st,deadtime:
+    type: int
+    default: 0
+    description: |
+      Sets the dead-time configuration on the associated timer which will add
+      a delay between the rising edge of the reference signal and the rising
+      edge of both the OCx and OCxN signals. This is commonly used and required
+      with bridge circuits to prevent shoot-through currents.
+
+      Not all SOCs support this configuration (ie. L0 and L1 chips), so verify
+      the support with associated databooks and api references.
+
+      Valid range [0 ... 255].
